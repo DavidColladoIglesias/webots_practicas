@@ -1,0 +1,83 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.13226976080754851 0.1995325067972467 0.9709230088462835 1.198131701026658
+  position -0.10872330725076 -0.4109326208534323 0.07077724393928436
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  children [
+    DEF Cuerpo Pose {
+      translation 0 0 0.065
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.752941 0.74902 0.737255
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.05
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.054 0.001 0.03
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.054000545082889366 0.0010000025987232518 0.03000535549443453
+        rotation -5.921133358937486e-09 1 -5.980150726732139e-09 1.5700000141767985
+        children [
+          DEF rueda1 Shape {
+            appearance PBRAppearance {
+              baseColor 0.207843 0.517647 0.894118
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.025
+            }
+          }
+        ]
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0540005 0.001 0.0300054
+        rotation -5.92113e-09 1 -8.457209235025466e-09 1.57
+        children [
+          USE rueda1
+        ]
+        name "solid(1)"
+      }
+    }
+  ]
+  boundingObject USE Cuerpo
+  physics Physics {
+  }
+}

@@ -1,0 +1,125 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2980541497636731 0.13174356033613294 -0.9454138554720963 2.349926589784497
+  position 0.2959128818718866 0.48415911226370767 0.4322595353666675
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 4.371063338361724e-05 0.027631221840311828 -0.00020645984320527555
+  rotation -1.327169252782654e-05 -0.014462815025061889 0.9998954079329564 3.140014871361246
+  children [
+    DEF Cuerpo Pose {
+      translation 0 0 0.0415
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.752941 0.74902 0.737255
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.045
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.104294507387979
+        anchor 0.045 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+        PositionSensor {
+          name "ps1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.045 0 0.025
+        rotation 0.4647884079146635 0.7538482978196716 0.4644184317429018 1.8489080621250429
+        children [
+          DEF rueda Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.025
+            }
+          }
+        ]
+        boundingObject USE rueda
+        physics DEF fisica_rueda Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.1042945385930607
+        anchor -0.045 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+        PositionSensor {
+          name "ps2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.045 0 0.025
+        rotation 0.4647884171430445 0.7538482864491297 0.4644184409639371 1.8489080766288029
+        children [
+          USE rueda
+        ]
+        name "solid(1)"
+        boundingObject USE rueda
+        physics USE fisica_rueda
+      }
+    }
+    Solid {
+      translation 0.015 -0.045 0.07
+      children [
+        DEF ojo Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.005
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation -0.015 -0.045 0.07
+      children [
+        USE ojo
+      ]
+      name "solid(3)"
+    }
+  ]
+  boundingObject USE Cuerpo
+  physics Physics {
+  }
+  controller "odometria"
+}
