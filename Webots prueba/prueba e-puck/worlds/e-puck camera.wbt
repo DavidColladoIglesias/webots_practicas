@@ -1,0 +1,40 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Roughcast.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.09285833305201471 0.7675831665659809 0.634187206105061 0.3770132524145917
+  position -1.7061124785280277 -0.30971965693344017 0.9118944055252667
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Wall {
+  translation 0.5 0.3 0
+  size 0.1 0.4 0.3
+  appearance Roughcast {
+    colorOverride 1 0 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+E-puck {
+  hidden position_0_0 0.40154539456303096
+  hidden position_0_1 0.4015453937073987
+  hidden rotation_1 0 1 0 0.4015453945630313
+  hidden rotation_2 0 1 0 0.4015453937073983
+  translation 0.00803715 -0.4 -6.39544e-05
+  rotation 2.1434128411844804e-06 -0.9999998317474604 -0.0005800865940452588 0.0009321516624084075
+  controller "e-puck_camera_test"
+}
