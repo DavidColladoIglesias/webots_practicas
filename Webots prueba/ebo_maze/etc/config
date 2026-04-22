@@ -1,0 +1,20 @@
+
+
+# Proxies for required interfaces
+Proxies.CameraSimple = "camerasimple:tcp -h localhost -p 10001"
+Proxies.DifferentialRobot = "differentialrobot:tcp -h localhost -p 10004"
+Proxies.Laser = "laser:tcp -h localhost -p 10005"
+
+
+
+
+
+
+
+Period.Compute = 1000
+Period.Emergency = 1500
+
+Ice.Warn.Connections = "0"
+Ice.Trace.Network = "0"
+Ice.Trace.Protocol = "0"
+Ice.MessageSizeMax = "20004800"
