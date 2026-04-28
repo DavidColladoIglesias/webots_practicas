@@ -1,0 +1,15 @@
+import "DifferentialRobot.idsl";
+import "Laser.idsl";
+import "CameraSimple.idsl";
+
+Component ebo_maze
+{
+    Communications
+    {
+        requires DifferentialRobot,Laser,CameraSimple;
+    };
+    language python;
+    gui Qt(QMainWindow);
+
+};
+
